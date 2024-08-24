@@ -1,0 +1,11 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.example.lending`
+|Published events
+|* `c.e.l.domain.LoanClosed` created by:
+** `c.e.l.domain.Loan.returned()`
+* `c.e.l.domain.LoanCreated` created by:
+** `c.e.l.domain.Loan.<init>(…)`
+
+|===
