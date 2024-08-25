@@ -51,8 +51,8 @@ public class Book implements AggregateRoot<Book, Book.BookIdentifier> {
         private static final ISBNValidator VALIDATOR = new ISBNValidator();
 
         public Isbn {
-            if (!VALIDATOR.isValid(value())) {
-                throw new IllegalArgumentException("invalid isbn : " + value());
+            if (!VALIDATOR.isValid(value)) {
+                throw new IllegalArgumentException("invalid isbn : " + value);
             }
         }
     }

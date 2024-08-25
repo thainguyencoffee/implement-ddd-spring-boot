@@ -30,6 +30,7 @@ public class Copy implements AggregateRoot<Copy, Copy.CopyIdentifier> {
         this.id = new CopyIdentifier();
         this.bookId = bookId;
         this.barCode = barCode;
+        this.available = true;
     }
 
     public void makeAvailable() {
