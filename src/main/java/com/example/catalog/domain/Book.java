@@ -4,16 +4,14 @@ import jakarta.persistence.*;
 import jakarta.persistence.Column;
 import lombok.Getter;
 import org.apache.commons.validator.routines.ISBNValidator;
-import org.jmolecules.ddd.annotation.ValueObject;
-import org.jmolecules.ddd.types.AggregateRoot;
-import org.jmolecules.ddd.types.Identifier;
 import org.springframework.util.Assert;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Getter
 @Entity
-public class Book implements AggregateRoot<Book, Book.BookIdentifier> {
+public class Book {
     @EmbeddedId
     private BookIdentifier id;
     private String title;
@@ -32,10 +30,7 @@ public class Book implements AggregateRoot<Book, Book.BookIdentifier> {
         this.isbn = isbn;
     }
 
-
-
-    @ValueObject
-    public record BookIdentifier(UUID id) implements Identifier {
+    public record BookIdentifier(UUID id) implements Serializable {
         public BookIdentifier {
             Assert.notNull(id, "id must not be null");
         }
@@ -46,7 +41,6 @@ public class Book implements AggregateRoot<Book, Book.BookIdentifier> {
 
     }
 
-    @ValueObject
     public record Isbn(String value) {
         private static final ISBNValidator VALIDATOR = new ISBNValidator();
 
