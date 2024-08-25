@@ -2,21 +2,17 @@ package com.example.lending.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.jmolecules.ddd.annotation.ValueObject;
-import org.jmolecules.ddd.types.AggregateRoot;
-import org.jmolecules.ddd.types.Identifier;
-import org.jmolecules.event.types.DomainEvent;
 import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.util.Assert;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 @Getter
 @Entity
-public class Loan extends AbstractAggregateRoot<Loan>
-        implements AggregateRoot<Loan, Loan.LoanIdentifier> {
+public class Loan extends AbstractAggregateRoot<Loan> {
     @EmbeddedId
     private LoanIdentifier id;
 
@@ -55,8 +51,7 @@ public class Loan extends AbstractAggregateRoot<Loan>
         this.registerEvent(new LoanClosed(this.copyId));
     }
 
-    @ValueObject
-    public record LoanIdentifier(UUID id) implements Identifier {
+    public record LoanIdentifier(UUID id) implements Serializable {
 
         public LoanIdentifier {
             Assert.notNull(id, "id must not be null");
@@ -67,10 +62,8 @@ public class Loan extends AbstractAggregateRoot<Loan>
         }
     }
 
-    @ValueObject
-    public record LoanCreated(CopyId copyId) implements DomainEvent {}
+    public record LoanCreated(CopyId copyId) {}
 
-    @ValueObject
-    public record LoanClosed(CopyId copyId) implements DomainEvent {}
+    public record LoanClosed(CopyId copyId) {}
 
 }
