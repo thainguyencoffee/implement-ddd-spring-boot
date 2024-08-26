@@ -28,3 +28,36 @@ top-level public members exposed as API and all other code protected as module-i
 otherwise). Through tests, it verifies compliance to modular architecture rules and also generates documentation for
 architecturally relevant components of the system. See `ModularityTests` and also `build/spring-modulith-docs/`, once
 the test has been executed.
+
+### How to deploy to Heroku
+1. Login to heroku
+```bash
+heroku login -i
+```
+
+2. Create app 
+```bash
+heroku create
+```
+
+3. Initial git repository
+```bash
+git init
+```
+
+```bash
+git remote add heroku <git repo>
+```
+
+```bash
+git add .
+```
+
+
+```bash
+git commit -m "initial commit"
+```
+
+```bash
+git push heroku main
+```
