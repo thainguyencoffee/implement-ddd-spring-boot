@@ -1,6 +1,6 @@
-# DDD Library
+# Implement DDD Spring Boot
 
-[![Java CI with Gradle](https://github.com/thainguyencoffee/ddd-library/actions/workflows/build.yaml/badge.svg)](https://github.com/thainguyencoffee/ddd-library/actions/workflows/build.yaml)
+[![Java CI with Gradle](https://github.com/thainguyencoffee/implement-ddd-spring-boot/actions/workflows/build.yaml/badge.svg)](https://github.com/thainguyencoffee/implement-ddd-spring-boot/actions/workflows/build.yaml)
 
 
 ## Project description
